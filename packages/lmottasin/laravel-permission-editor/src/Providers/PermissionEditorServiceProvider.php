@@ -2,8 +2,10 @@
 
 namespace Lmottasin\LaravelPermissionEditor\Providers;
 
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Lmottasin\LaravelPermissionEditor\Http\Middleware\SpatiePermissionMiddleware;
 
 class PermissionEditorServiceProvider extends ServiceProvider
 {
@@ -14,7 +16,7 @@ class PermissionEditorServiceProvider extends ServiceProvider
     {
         Route::prefix('permission-editor')
             ->as('permission-editor.')
-            ->middleware('web')
+            ->middleware(['web', 'spatie-permission'])
             ->group(function () {
                 $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
             });
@@ -28,6 +30,10 @@ class PermissionEditorServiceProvider extends ServiceProvider
                 __DIR__ . '/../../resources/assets' => public_path('permission-editor'),
             ], 'assets');
         };
+
+        // alias middleware
+        $router = $this->app->make(Router::class);
+        $router->aliasMiddleware('spatie-permission', SpatiePermissionMiddleware::class);
     }
 
     /**

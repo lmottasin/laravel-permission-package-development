@@ -55,13 +55,13 @@ class RoleController extends Controller
 
         $role->syncPermissions($request->input('permissions'));
 
-        return redirect()->route('permission-editor::roles.index');
+        return redirect()->route('permission-editor.roles.index');
     }
 
     public function destroy(Role $role)
     {
         $role->delete();
 
-        return redirect()->route('permission-editor::roles.index');
+        return redirect()->route('permission-editor.roles.index');
     }
 }
