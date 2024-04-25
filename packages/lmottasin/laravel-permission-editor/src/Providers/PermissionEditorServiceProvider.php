@@ -14,12 +14,20 @@ class PermissionEditorServiceProvider extends ServiceProvider
     {
         Route::prefix('permission-editor')
             ->as('permission-editor.')
-            ->group(function (){
-                $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
+            ->middleware('web')
+            ->group(function () {
+                $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
             });
 
         // views load
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'permission-editor');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'permission-editor');
+
+        // publish resource files
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../../resources/assets' => public_path('permission-editor'),
+            ], 'assets');
+        };
     }
 
     /**
