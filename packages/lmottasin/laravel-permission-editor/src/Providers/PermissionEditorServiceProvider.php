@@ -16,7 +16,8 @@ class PermissionEditorServiceProvider extends ServiceProvider
     {
         Route::prefix('permission-editor')
             ->as('permission-editor.')
-            ->middleware(['web', 'spatie-permission'])
+            // configurable permission middleware
+            ->middleware(config('permission-editor.middleware', ['web', 'spatie-permission']))
             ->group(function () {
                 $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
             });
@@ -29,6 +30,11 @@ class PermissionEditorServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../../resources/assets' => public_path('permission-editor'),
             ], 'assets');
+
+            // config file
+            $this->publishes([
+                __DIR__ . '/../../config/permission-editor.php' => config_path('permission-editor.php'),
+            ], 'permission-editor-config');
         };
 
         // alias middleware
