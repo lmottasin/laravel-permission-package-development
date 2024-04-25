@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "da9b7a1dc1dd923105198c572cc7df8d",
+    "content-hash": "81ba8b61c67f3c77ee921cd9fe357bc2",
     "packages": [
         {
             "name": "brick/math",
@@ -1825,6 +1825,30 @@
                 }
             ],
             "time": "2024-01-28T23:22:08+00:00"
+        },
+        {
+            "name": "lmottasin/laravel-permission-editor",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/lmottasin/laravel-permission-editor",
+                "reference": "5afecc4f693c484b9e12193bbb1b882f6104082e"
+            },
+            "type": "library",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Md. Mottasin Lemon",
+                    "email": "lmottasin@gmail.com"
+                }
+            ],
+            "description": "Visual UI for managing Roles/Permissions for Spatie Laravel Permission package",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "monolog/monolog",
@@ -8134,7 +8158,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "lmottasin/laravel-permission-editor": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
