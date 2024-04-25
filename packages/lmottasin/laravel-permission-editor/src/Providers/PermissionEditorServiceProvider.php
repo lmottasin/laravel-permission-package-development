@@ -17,6 +17,9 @@ class PermissionEditorServiceProvider extends ServiceProvider
             ->group(function (){
                 $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
             });
+
+        // views load
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'permission-editor');
     }
 
     /**
