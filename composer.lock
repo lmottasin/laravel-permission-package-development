@@ -1832,9 +1832,21 @@
             "dist": {
                 "type": "path",
                 "url": "packages/lmottasin/laravel-permission-editor",
-                "reference": "5afecc4f693c484b9e12193bbb1b882f6104082e"
+                "reference": "b11e95aad1c19ea28c988ae9f99bf675ff00be0b"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Lmottasin\\LaravelPermissionEditor\\Providers\\PermissionEditorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lmottasin\\LaravelPermissionEditor\\": "src"
+                }
+            },
             "license": [
                 "MIT"
             ],

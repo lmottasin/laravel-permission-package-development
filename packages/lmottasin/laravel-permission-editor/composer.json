@@ -18,7 +18,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Lmottasin\\LaravelPermissionEditor\\Provider\\PermissionServiceProvider"
+                "Lmottasin\\LaravelPermissionEditor\\Providers\\PermissionEditorServiceProvider"
             ]
         }
     }
