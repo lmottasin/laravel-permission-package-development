@@ -9,5 +9,17 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Lmottasin\\LaravelPermissionEditor\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Lmottasin\\LaravelPermissionEditor\\Provider\\PermissionServiceProvider"
+            ]
+        }
+    }
 }
