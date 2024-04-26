@@ -5,6 +5,7 @@ namespace Lmottasin\LaravelPermissionEditor\Providers;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Lmottasin\LaravelPermissionEditor\Console\Commands\CreateTaskCommand;
 use Lmottasin\LaravelPermissionEditor\Http\Middleware\SpatiePermissionMiddleware;
 
 class PermissionEditorServiceProvider extends ServiceProvider
@@ -49,6 +50,11 @@ class PermissionEditorServiceProvider extends ServiceProvider
 
                 // More migration files here
             ], 'migrations');*/
+
+            // commands
+            $this->commands([
+                CreateTaskCommand::class
+            ]);
         };
 
         // alias middleware

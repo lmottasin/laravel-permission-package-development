@@ -30,7 +30,9 @@
                         @forelse ($tasks as $task)
                             <tr>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm font-medium text-gray-900 sm:pl-6">
-                                    {{ $task->name }}
+                                    <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
+                                        {{ $task->name }}
+                                    </span>
                                 </td>
                                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                     {{--<a href="{{ route('permission-editor.roles.edit', $task) }}"
