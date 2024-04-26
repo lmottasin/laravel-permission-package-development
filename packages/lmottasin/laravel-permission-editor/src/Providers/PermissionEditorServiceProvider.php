@@ -35,6 +35,20 @@ class PermissionEditorServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../../config/permission-editor.php' => config_path('permission-editor.php'),
             ], 'permission-editor-config');
+
+            // load migrations without publishing
+            $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
+
+            /*
+             * if we want to publish the migration files and edit them
+             * */
+
+            /*$this->publishes([
+                __DIR__ . '/../../database/migrations/2023_01_01_100000_create_tasks_table.php' =>
+                    database_path('migrations/' . date('Y_m_d_His', time()) . '_create_tasks_table.php'),
+
+                // More migration files here
+            ], 'migrations');*/
         };
 
         // alias middleware
